@@ -106,6 +106,17 @@ var InputHandler = function () {
 		else if (this.down[key]) return this.pressed[key] = true;
 		return false;
 	};
+
+	document.querySelector("canvas").addEventListener("touchstart", function (event) {
+		event.preventDefault();
+		_this.down[32] = true;
+	}, false);
+
+	document.querySelector("canvas").addEventListener("touchend", function (event) {
+		event.preventDefault();
+		delete _this.down[32];
+		delete _this.pressed[32];
+	}, false);
 };
 
 // Bullet class
